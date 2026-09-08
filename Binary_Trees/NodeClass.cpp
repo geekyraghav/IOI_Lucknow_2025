@@ -12,9 +12,9 @@ public:
 };
 void print(Node* root){
     if(root == NULL) return;
-    cout<<root->val<<" ";
     print(root->left);
     print(root->right);
+    cout<<root->val<<" ";
 }
 int getSize(Node* root){
     if(root == NULL) return 0;
@@ -23,6 +23,11 @@ int getSize(Node* root){
 int product(Node* root){
     if(root == NULL) return 1;
     return root->val * product(root->left) * product(root->right);
+}
+int sum(Node* root){
+    if(root == NULL) return 0;
+
+    return root->val + sum(root->left) + sum(root->right);
 }
 int levels(Node* root){
     if(root == NULL) return 0;
@@ -41,7 +46,9 @@ int main(){
     b->left = d; b->right = e;
     c->left = f; c->right = g;
 
-    cout<<getSize(a)<<endl;
-    cout<<levels(a)<<endl;
+    // cout<<getSize(a)<<endl;
+    // cout<<levels(a)<<endl;
+    // cout<<sum(a)<<endl;
     print(a);
+    
 }
